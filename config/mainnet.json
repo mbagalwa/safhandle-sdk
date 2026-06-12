@@ -1,0 +1,29 @@
+{
+  "name": "Safrochain",
+  "chainName": "safrochain",
+  "chainId": "safrochain-1",
+  "bech32Prefix": "addr_safro",
+  "addressRegex": "^addr_safro1[02-9ac-hj-np-z]{38,58}$",
+  "coinDenom": "SAF",
+  "coinMinimalDenom": "usaf",
+  "coinDecimals": 6,
+  "slip44": 118,
+  "rpc": "https://rpc.safrochain.com",
+  "rest": "https://api.safrochain.com",
+  "ws": "wss://rpc.safrochain.com/websocket",
+  "explorer": "https://explorer.safrochain.com",
+  "contractAddress": "",
+  "gasPrice": "100000usaf",
+  "gasPriceSteps": {
+    "low": 100000,
+    "average": 100000,
+    "high": 100000
+  },
+  "role": "production",
+  "saflink": {
+    "nameRegistrationFeeUsaf": "50000000",
+    "phoneLinkFeeUsaf": "100000000",
+    "devModuleWallet": "",
+    "governanceModule": "gov"
+  }
+}

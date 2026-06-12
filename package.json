@@ -1,0 +1,35 @@
+{
+  "name": "@safrochain/saflink",
+  "version": "0.0.0",
+  "description": "TypeScript/JavaScript client for SAFLink short names and phone links on Safrochain",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Safrochain-Org/saflink-sdk.git"
+  },
+  "homepage": "https://github.com/Safrochain-Org/saflink-sdk#readme",
+  "bugs": {
+    "url": "https://github.com/Safrochain-Org/saflink-sdk/issues"
+  },
+  "keywords": [
+    "safrochain",
+    "saflink",
+    "name-service",
+    "phone-link",
+    "cosmos",
+    "cosmwasm",
+    "wallet"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "verify": "npm run lint && npm run format:check && npm run test && npm run audit:check",
+    "lint": "node scripts/verify-docs.mjs",
+    "format:check": "node scripts/check-format.mjs",
+    "test": "node --test scripts/verify-repo.test.mjs",
+    "audit:check": "node scripts/audit-check.mjs",
+    "format": "node scripts/check-format.mjs --write"
+  },
+  "private": true
+}

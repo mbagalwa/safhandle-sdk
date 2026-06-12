@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Verify repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install
+        run: npm install
+
+      - name: Lint documentation
+        run: npm run lint
+
+      - name: Format check
+        run: npm run format:check
+
+      - name: Tests
+        run: npm run test
+
+      - name: Dependency audit
+        run: npm run audit:check
+
+  markdown-links:
+    name: Check markdown links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Link check
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: yes
+          config-file: .github/markdown-link-check-config.json
+
+  license:
+    name: License header check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify MIT license file
+        run: |
+          grep -q "MIT License" LICENSE
+          grep -q "Copyright (c) 2026 Safrochain" LICENSE

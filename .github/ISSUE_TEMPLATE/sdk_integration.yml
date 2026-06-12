@@ -1,0 +1,52 @@
+name: SDK integration request
+description: Request help integrating SAFLink into a wallet or dApp.
+title: "integration: "
+labels: ["integration"]
+body:
+  - type: input
+    id: project
+    attributes:
+      label: Project name
+      placeholder: My Safrochain Wallet
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options:
+        - Web (browser)
+        - Mobile (React Native)
+        - Mobile (Flutter)
+        - Backend (Node.js)
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Use case
+      description: What SAFLink features do you need?
+      placeholder: |
+        - Resolve names in send flow
+        - Register names on user signup
+    validations:
+      required: true
+
+  - type: textarea
+    id: stack
+    attributes:
+      label: Tech stack
+      placeholder: React, Keplr, TypeScript
+
+  - type: checkboxes
+    id: features
+    attributes:
+      label: Features needed
+      options:
+        - label: Name resolution (getAddress)
+        - label: Name registration (registerName)
+        - label: Phone linking (linkPhone)
+        - label: Phone verification (Phase 2)
