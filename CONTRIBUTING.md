@@ -1,4 +1,4 @@
-# Contributing to SAFLink SDK
+# Contributing to SafHandle SDK
 
 Thank you for helping wallets and dApps integrate human-friendly Safrochain payments.
 
@@ -18,8 +18,8 @@ Thank you for helping wallets and dApps integrate human-friendly Safrochain paym
 ## Setup
 
 ```bash
-git clone https://github.com/<your-fork>/saflink-sdk.git
-cd saflink-sdk
+git clone https://github.com/<your-fork>/safhandle-sdk.git
+cd safhandle-sdk
 nvm use
 npm install
 npm run verify
@@ -38,7 +38,7 @@ type(scope): short description
 
 ## Specification changes
 
-SDK API changes must stay aligned with [saflink-contract](https://github.com/Safrochain-Org/saflink-contract) `CONTRACT_API.md`. Note cross-repo impact in PRs.
+SDK API changes must stay aligned with [safhandle-contract](https://github.com/Safrochain-Org/safhandle-contract) `CONTRACT_API.md`. Note cross-repo impact in PRs.
 
 ## Code of conduct
 

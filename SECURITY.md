@@ -15,7 +15,7 @@
 | Channel | Details |
 | --- | --- |
 | **Email** | [security@safrochain.com](mailto:security@safrochain.com) |
-| **Subject** | `[saflink-sdk] Brief description` |
+| **Subject** | `[safhandle-sdk] Brief description` |
 
 ### High-priority areas
 

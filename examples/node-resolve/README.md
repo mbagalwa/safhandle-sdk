@@ -1,6 +1,6 @@
 # Example: Node.js Name Resolution
 
-Resolve a SAFLink short name from a Node.js script. **Runnable code coming in Phase 2** — this walkthrough describes the target flow.
+Resolve a SafHandle short name from a Node.js script. **Runnable code coming in Phase 2** — this walkthrough describes the target flow.
 
 ## Goal
 
@@ -9,8 +9,8 @@ Given input `john`, print the resolved `addr_safro` address on testnet.
 ## Prerequisites
 
 - Node.js 20+
-- `@safrochain/saflink` installed (future)
-- SAFLink contract deployed on testnet
+- `@safrochain/safhandle` installed (future)
+- SafHandle contract deployed on testnet
 
 ## Steps
 
@@ -23,18 +23,18 @@ cp .env.example .env
 Set:
 
 ```env
-SAFLINK_NETWORK=safrochain-testnet
+SAFHANDLE_NETWORK=safrochain-testnet
 ```
 
 ### 2. Create resolve script
 
 ```javascript
-import { SafLink } from '@safrochain/saflink';
+import { SafHandle } from '@safrochain/safhandle';
 
-const safLink = new SafLink({ network: 'safrochain-testnet' });
+const safHandle = new SafHandle({ network: 'safrochain-testnet' });
 
 const input = process.argv[2] ?? 'john';
-const result = await safLink.getAddress(input);
+const result = await safHandle.getAddress(input);
 
 console.log(`Input:      ${input}`);
 console.log(`Normalized: ${result.normalizedKey}`);
@@ -59,12 +59,12 @@ node resolve.mjs +243899123456
 ## Error handling
 
 ```javascript
-import { SafLinkNotFoundError } from '@safrochain/saflink';
+import { SafHandleNotFoundError } from '@safrochain/safhandle';
 
 try {
-  await safLink.getAddress('nobody');
+  await safHandle.getAddress('nobody');
 } catch (err) {
-  if (err instanceof SafLinkNotFoundError) {
+  if (err instanceof SafHandleNotFoundError) {
     console.error('Name not registered.');
     process.exit(1);
   }

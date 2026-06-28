@@ -20,7 +20,7 @@
     "high": 0.04
   },
   "role": "testing",
-  "saflink": {
+  "safhandle": {
     "nameRegistrationFeeUsaf": "50000000",
     "phoneLinkFeeUsaf": "100000000",
     "devModuleWallet": "",

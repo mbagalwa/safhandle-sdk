@@ -6,9 +6,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for reporting a bug. Please search [existing issues](https://github.com/Safrochain-Org/saflink-sdk/issues) first.
+        Thanks for reporting a bug. Please search [existing issues](https://github.com/Safrochain-Org/safhandle-sdk/issues) first.
 
-        **Do not use this form for security vulnerabilities.** See [SECURITY.md](https://github.com/Safrochain-Org/saflink-sdk/blob/main/SECURITY.md).
+        **Do not use this form for security vulnerabilities.** See [SECURITY.md](https://github.com/Safrochain-Org/safhandle-sdk/blob/main/SECURITY.md).
 
   - type: textarea
     id: description
@@ -31,7 +31,7 @@ body:
     attributes:
       label: Steps to reproduce
       placeholder: |
-        1. npm install @safrochain/saflink
+        1. npm install @safrochain/safhandle
         2. Call getAddress("john") on testnet
         3. Observe error
     validations:

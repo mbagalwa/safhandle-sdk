@@ -40,4 +40,4 @@
 - [ ] `README.md` or `docs/` updated (if user-facing)
 - [ ] `CHANGELOG.md` updated under `[Unreleased]`
 - [ ] `.env.example` updated (if new env vars)
-- [ ] Impact on [saflink-contract](https://github.com/Safrochain-Org/saflink-contract) noted (if API changed)
+- [ ] Impact on [safhandle-contract](https://github.com/Safrochain-Org/safhandle-contract) noted (if API changed)

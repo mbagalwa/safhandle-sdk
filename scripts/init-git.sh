@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO_URL="${REPO_URL:-https://github.com/Safrochain-Org/saflink-sdk.git}"
+REPO_URL="${REPO_URL:-https://github.com/Safrochain-Org/safhandle-sdk.git}"
 BRANCH="${BRANCH:-main}"
 
 if [[ -d .git ]]; then
@@ -12,10 +12,10 @@ fi
 git init -b "$BRANCH"
 git add .
 git commit -m "$(cat <<'EOF'
-chore: initial SAFLink SDK documentation scaffold
+chore: initial SafHandle SDK documentation scaffold
 
 Open-source specification and repository structure for the
-@safrochain/saflink TypeScript client library.
+@safrochain/safhandle TypeScript client library.
 EOF
 )"
 

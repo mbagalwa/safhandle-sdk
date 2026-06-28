@@ -1,16 +1,16 @@
 # API Reference
 
-Target API for `@safrochain/saflink`. Aligns with [contract CONTRACT_API.md](https://github.com/Safrochain-Org/saflink-contract/blob/main/docs/CONTRACT_API.md).
+Target API for `@safrochain/safhandle`. Aligns with [contract CONTRACT_API.md](https://github.com/Safrochain-Org/safhandle-contract/blob/main/docs/CONTRACT_API.md).
 
-## SafLink class
+## SafHandle class
 
 ```typescript
-import { SafLink } from '@safrochain/saflink';
+import { SafHandle } from '@safrochain/safhandle';
 
-const client = new SafLink(options: SafLinkOptions);
+const client = new SafHandle(options: SafHandleOptions);
 ```
 
-### SafLinkOptions
+### SafHandleOptions
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -48,7 +48,7 @@ interface ResolveResult {
 }
 ```
 
-**Throws:** `SafLinkNotFoundError`, `SafLinkInvalidInputError`
+**Throws:** `SafHandleNotFoundError`, `SafHandleInvalidInputError`
 
 ---
 
@@ -57,11 +57,11 @@ interface ResolveResult {
 Read current contract fees and configuration.
 
 ```typescript
-getConfig(): Promise<SafLinkConfig>
+getConfig(): Promise<SafHandleConfig>
 ```
 
 ```typescript
-interface SafLinkConfig {
+interface SafHandleConfig {
   nameRegistrationFeeUsaf: string;
   phoneLinkFeeUsaf: string;
   devModuleWallet: string;
@@ -162,7 +162,7 @@ import {
   isValidName,
   isValidPhone,
   normalizePhone,
-} from '@safrochain/saflink';
+} from '@safrochain/safhandle';
 
 normalizeName('John');        // 'john.saf'
 isValidPhone('+243899123456'); // true
@@ -180,19 +180,19 @@ isValidPhone('+243899123456'); // true
 
 | Error | Code | When |
 | --- | --- | --- |
-| `SafLinkNotFoundError` | `NOT_FOUND` | Name or phone not registered |
-| `SafLinkInvalidInputError` | `INVALID_INPUT` | Failed validation |
-| `SafLinkInsufficientFeeError` | `INSUFFICIENT_FEE` | Wrong fee amount attached |
-| `SafLinkNetworkError` | `NETWORK` | RPC failure |
-| `SafLinkContractError` | `CONTRACT` | On-chain contract error |
+| `SafHandleNotFoundError` | `NOT_FOUND` | Name or phone not registered |
+| `SafHandleInvalidInputError` | `INVALID_INPUT` | Failed validation |
+| `SafHandleInsufficientFeeError` | `INSUFFICIENT_FEE` | Wrong fee amount attached |
+| `SafHandleNetworkError` | `NETWORK` | RPC failure |
+| `SafHandleContractError` | `CONTRACT` | On-chain contract error |
 
 See [ERROR_HANDLING.md](./ERROR_HANDLING.md).
 
 ## Planned exports
 
 ```typescript
-export { SafLink } from './client';
-export type { SafLinkOptions, ResolveResult, SafLinkConfig, ExecuteOptions, TxResult };
+export { SafHandle } from './client';
+export type { SafHandleOptions, ResolveResult, SafHandleConfig, ExecuteOptions, TxResult };
 export * from './validation';
 export * from './errors';
 export { networks } from './networks';

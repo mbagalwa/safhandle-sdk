@@ -20,7 +20,7 @@
     "high": 100000
   },
   "role": "production",
-  "saflink": {
+  "safhandle": {
     "nameRegistrationFeeUsaf": "50000000",
     "phoneLinkFeeUsaf": "100000000",
     "devModuleWallet": "",

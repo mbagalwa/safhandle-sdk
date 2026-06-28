@@ -1,6 +1,6 @@
 # SDK Architecture
 
-How `@safrochain/saflink` connects applications to the on-chain SAFLink registry.
+How `@safrochain/safhandle` connects applications to the on-chain SafHandle registry.
 
 ## Layer diagram
 
@@ -11,15 +11,15 @@ flowchart TB
         DApp[dApp]
         CLI[CLI_Tool]
     end
-    subgraph sdk [saflink_sdk]
-        Client[SafLink_Client]
+    subgraph sdk [safhandle_sdk]
+        Client[SafHandle_Client]
         Validation[validation]
         Networks[networks]
         Errors[errors]
     end
     subgraph chain [Safrochain]
         RPC[RPC_Node]
-        Contract[SAFLink_Contract]
+        Contract[SafHandle_Contract]
     end
     Wallet --> Client
     DApp --> Client
@@ -36,7 +36,7 @@ flowchart TB
 ```text
 src/
 ├── index.ts           # Public exports
-├── client.ts          # SafLink class
+├── client.ts          # SafHandle class
 ├── queries.ts         # CosmWasm query helpers
 ├── execute.ts         # CosmWasm execute + signing
 ├── validation.ts      # Name/phone/address validation
@@ -59,7 +59,7 @@ Zero runtime dependencies beyond CosmJS is a design goal.
 
 ## Query path
 
-1. `SafLink.getAddress(input)` classifies input (name vs phone vs address)
+1. `SafHandle.getAddress(input)` classifies input (name vs phone vs address)
 2. `validation.ts` normalizes input
 3. `queries.ts` builds `QueryMsg` JSON
 4. `CosmWasmClient.queryContractSmart()` calls chain
@@ -87,5 +87,5 @@ SDK major version bumps when contract API has breaking changes.
 
 ## Related
 
-- [Contract ARCHITECTURE](https://github.com/Safrochain-Org/saflink-contract/blob/main/docs/ARCHITECTURE.md)
+- [Contract ARCHITECTURE](https://github.com/Safrochain-Org/safhandle-contract/blob/main/docs/ARCHITECTURE.md)
 - [API_REFERENCE.md](./API_REFERENCE.md)

@@ -1,6 +1,6 @@
 # Integration Guide
 
-Patterns for integrating SAFLink into dApps, payment flows, and Safrochain ecosystem apps.
+Patterns for integrating SafHandle into dApps, payment flows, and Safrochain ecosystem apps.
 
 ## Resolution in send flows
 
@@ -10,7 +10,7 @@ Every send-by-name flow should follow this pattern:
 sequenceDiagram
     participant User
     participant App
-    participant SDK as SafLink_SDK
+    participant SDK as SafHandle_SDK
     participant Contract
 
     User->>App: Enter recipient "john"
@@ -59,7 +59,7 @@ For contact lists, batch queries reduce RPC load:
 
 ```typescript
 // Future API
-const results = await safLink.batchGetAddress(['john', 'alice', '+243899123456']);
+const results = await safHandle.batchGetAddress(['john', 'alice', '+243899123456']);
 ```
 
 ## Registration UX
@@ -84,4 +84,4 @@ Read-only mode needs only RPC access — no wallet required.
 
 - [WALLET_INTEGRATION.md](./WALLET_INTEGRATION.md)
 - [ERROR_HANDLING.md](./ERROR_HANDLING.md)
-- [Contract HOW_IT_WORKS](https://github.com/Safrochain-Org/saflink-contract/blob/main/docs/HOW_IT_WORKS.md)
+- [Contract HOW_IT_WORKS](https://github.com/Safrochain-Org/safhandle-contract/blob/main/docs/HOW_IT_WORKS.md)

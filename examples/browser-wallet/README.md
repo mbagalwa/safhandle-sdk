@@ -1,6 +1,6 @@
 # Example: Browser Wallet Send Flow
 
-Integrate SAFLink resolution into a browser wallet send screen. Markdown walkthrough for the target UX.
+Integrate SafHandle resolution into a browser wallet send screen. Markdown walkthrough for the target UX.
 
 ## Goal
 
@@ -12,7 +12,7 @@ User types `john` in the recipient field; wallet resolves to `addr_safro1...` be
 sequenceDiagram
     participant User
     participant UI as Wallet_UI
-    participant SDK as SafLink_SDK
+    participant SDK as SafHandle_SDK
     participant Keplr
 
     User->>UI: Type "john" in recipient
@@ -71,7 +71,7 @@ const [resolved, setResolved] = useState<ResolveResult | null>(null);
 useEffect(() => {
   const timer = setTimeout(async () => {
     if (!recipient) return;
-    const result = await safLink.getAddress(recipient);
+    const result = await safHandle.getAddress(recipient);
     setResolved(result);
   }, 300);
   return () => clearTimeout(timer);

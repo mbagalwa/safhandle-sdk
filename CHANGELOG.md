@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Initial open-source documentation and repository scaffold.
-- Target API specification for `SafLink` client.
+- Target API specification for `SafHandle` client.
 - Integration guides for wallets and dApps.
 - Network configuration examples for testnet and mainnet.
 - CI workflows for documentation, link checks, and license validation.

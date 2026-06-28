@@ -1,6 +1,6 @@
 # Wallet Integration
 
-Guide for Safrochain wallet developers integrating SAFLink name resolution and registration.
+Guide for Safrochain wallet developers integrating SafHandle name resolution and registration.
 
 ## Supported wallets (target)
 
@@ -8,7 +8,7 @@ Any Cosmos wallet supporting Safrochain (`addr_safro`, chain ID `safrochain-1` /
 
 | Wallet | Integration path |
 | --- | --- |
-| Keplr | `@cosmjs/cosmwasm-stargate` + SAFLink SDK |
+| Keplr | `@cosmjs/cosmwasm-stargate` + SafHandle SDK |
 | Leap | Same as Keplr |
 | Custom Safrochain wallet | Native SDK or direct CosmWasm queries |
 
@@ -17,7 +17,7 @@ Any Cosmos wallet supporting Safrochain (`addr_safro`, chain ID `safrochain-1` /
 ### 1. Detect input type
 
 ```typescript
-import { isValidPhone, isValidName } from '@safrochain/saflink';
+import { isValidPhone, isValidName } from '@safrochain/safhandle';
 
 function classifyInput(input: string) {
   if (input.startsWith('+') && isValidPhone(input)) return 'phone';
@@ -29,10 +29,10 @@ function classifyInput(input: string) {
 ### 2. Resolve before send
 
 ```typescript
-const safLink = new SafLink({ network: currentNetwork });
+const safHandle = new SafHandle({ network: currentNetwork });
 
 if (type === 'name' || type === 'phone') {
-  const { address, verified } = await safLink.getAddress(input);
+  const { address, verified } = await safHandle.getAddress(input);
   if (type === 'phone' && verified === false) {
     showWarning('This phone number is not verified.');
   }
@@ -71,13 +71,13 @@ sequenceDiagram
 
 ## Chain configuration
 
-Add SAFLink contract to wallet chain registry:
+Add SafHandle contract to wallet chain registry:
 
 ```json
 {
   "chainId": "safro-testnet-1",
   "bech32Prefix": "addr_safro",
-  "saflink": {
+  "safhandle": {
     "contractAddress": "addr_safro1...",
     "nameFeeDisplay": "50 SAF",
     "phoneFeeDisplay": "100 SAF"

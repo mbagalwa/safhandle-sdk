@@ -1,6 +1,6 @@
 # Phone Verification (Phase 2)
 
-Off-chain mobile number verification for SAFLink phone links. Phase 1 stores phones on-chain with `verified: false`. Phase 2 adds OTP-based proof.
+Off-chain mobile number verification for SafHandle phone links. Phase 1 stores phones on-chain with `verified: false`. Phase 2 adds OTP-based proof.
 
 ## Phase 1 behavior
 
@@ -33,13 +33,13 @@ sequenceDiagram
 
 ```typescript
 // Request OTP (off-chain)
-await safLink.requestPhoneVerification('+243899123456');
+await safHandle.requestPhoneVerification('+243899123456');
 
 // Submit OTP code
-await safLink.submitPhoneVerification('+243899123456', '123456');
+await safHandle.submitPhoneVerification('+243899123456', '123456');
 
 // Poll status
-const status = await safLink.getPhoneVerificationStatus('+243899123456');
+const status = await safHandle.getPhoneVerificationStatus('+243899123456');
 // { verified: true, verifiedAt: '2027-01-15T...' }
 ```
 
@@ -53,7 +53,7 @@ interface ResolveResult {
 }
 ```
 
-Contract stores `verified_at_time` when attestation succeeds. See [contract PHONE_LINKING.md](https://github.com/Safrochain-Org/saflink-contract/blob/main/docs/PHONE_LINKING.md).
+Contract stores `verified_at_time` when attestation succeeds. See [contract PHONE_LINKING.md](https://github.com/Safrochain-Org/safhandle-contract/blob/main/docs/PHONE_LINKING.md).
 
 ## Privacy
 

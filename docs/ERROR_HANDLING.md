@@ -1,17 +1,17 @@
 # Error Handling
 
-Error types and recovery strategies for `@safrochain/saflink`.
+Error types and recovery strategies for `@safrochain/safhandle`.
 
 ## Error hierarchy
 
 ```text
-SafLinkError (base)
-├── SafLinkNotFoundError
-├── SafLinkInvalidInputError
-├── SafLinkInsufficientFeeError
-├── SafLinkNetworkError
-├── SafLinkContractError
-└── SafLinkVerificationError (Phase 2)
+SafHandleError (base)
+├── SafHandleNotFoundError
+├── SafHandleInvalidInputError
+├── SafHandleInsufficientFeeError
+├── SafHandleNetworkError
+├── SafHandleContractError
+└── SafHandleVerificationError (Phase 2)
     ├── VerificationPendingError
     ├── VerificationFailedError
     └── VerificationRateLimitError
@@ -19,7 +19,7 @@ SafLinkError (base)
 
 ## Error reference
 
-### SafLinkNotFoundError
+### SafHandleNotFoundError
 
 **Code:** `NOT_FOUND`
 
@@ -27,9 +27,9 @@ Name or phone is not registered.
 
 ```typescript
 try {
-  await safLink.getAddress('unknown');
+  await safHandle.getAddress('unknown');
 } catch (err) {
-  if (err instanceof SafLinkNotFoundError) {
+  if (err instanceof SafHandleNotFoundError) {
     showMessage('Name not found. Check spelling or ask recipient to register.');
   }
 }
@@ -37,7 +37,7 @@ try {
 
 ---
 
-### SafLinkInvalidInputError
+### SafHandleInvalidInputError
 
 **Code:** `INVALID_INPUT`
 
@@ -51,7 +51,7 @@ Input fails name or phone validation.
 
 ---
 
-### SafLinkInsufficientFeeError
+### SafHandleInsufficientFeeError
 
 **Code:** `INSUFFICIENT_FEE`
 
@@ -61,7 +61,7 @@ Execute message attached wrong fee amount.
 
 ---
 
-### SafLinkNetworkError
+### SafHandleNetworkError
 
 **Code:** `NETWORK`
 
@@ -71,7 +71,7 @@ RPC unreachable, timeout, or malformed response.
 
 ---
 
-### SafLinkContractError
+### SafHandleContractError
 
 **Code:** `CONTRACT`
 
@@ -79,7 +79,7 @@ On-chain contract returned an error (name taken, not owner, etc.).
 
 | Contract error | SDK mapping |
 | --- | --- |
-| `NameTaken` | `SafLinkContractError` with `reason: 'name_taken'` |
+| `NameTaken` | `SafHandleContractError` with `reason: 'name_taken'` |
 | `PhoneTaken` | `reason: 'phone_taken'` |
 | `Unauthorized` | `reason: 'unauthorized'` |
 
@@ -87,7 +87,7 @@ On-chain contract returned an error (name taken, not owner, etc.).
 
 | Error | Suggested message |
 | --- | --- |
-| `NOT_FOUND` | "We couldn't find that name or number on SAFLink." |
+| `NOT_FOUND` | "We couldn't find that name or number on SafHandle." |
 | `INVALID_INPUT` | "Please enter a valid name (e.g. john) or phone (+243...)." |
 | `INSUFFICIENT_FEE` | "Registration fee has changed. Please try again." |
 | `NETWORK` | "Can't reach Safrochain right now. Try again shortly." |

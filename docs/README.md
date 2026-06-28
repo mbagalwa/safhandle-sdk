@@ -1,13 +1,13 @@
-# SAFLink SDK Documentation
+# SafHandle SDK Documentation
 
-Client library documentation for integrating SAFLink into wallets and dApps.
+Client library documentation for integrating SafHandle into wallets and dApps.
 
 ## Reading order
 
 | # | Document | Description |
 | --- | --- | --- |
 | 1 | [GETTING_STARTED.md](./GETTING_STARTED.md) | Install, configure, first resolve |
-| 2 | [API_REFERENCE.md](./API_REFERENCE.md) | `SafLink` class and methods |
+| 2 | [API_REFERENCE.md](./API_REFERENCE.md) | `SafHandle` class and methods |
 | 3 | [INTEGRATION_GUIDE.md](./INTEGRATION_GUIDE.md) | dApp patterns |
 | 4 | [WALLET_INTEGRATION.md](./WALLET_INTEGRATION.md) | Wallet signing flows |
 | 5 | [NETWORKS.md](./NETWORKS.md) | Network configuration |
@@ -18,5 +18,5 @@ Client library documentation for integrating SAFLink into wallets and dApps.
 
 ## Related
 
-- Contract spec: [saflink-contract](https://github.com/Safrochain-Org/saflink-contract/tree/main/docs)
+- Contract spec: [safhandle-contract](https://github.com/Safrochain-Org/safhandle-contract/tree/main/docs)
 - Examples: [../examples/](../examples/)

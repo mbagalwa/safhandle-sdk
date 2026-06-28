@@ -1,14 +1,14 @@
 <p align="center">
-  <strong>SAFLink SDK</strong><br>
+  <strong>SafHandle SDK</strong><br>
   TypeScript client for short names and phone links on Safrochain
 </p>
 
 <p align="center">
-  <a href="https://github.com/Safrochain-Org/saflink-sdk/blob/main/LICENSE">
+  <a href="https://github.com/Safrochain-Org/safhandle-sdk/blob/main/LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT">
   </a>
-  <a href="https://github.com/Safrochain-Org/saflink-sdk/actions">
-    <img src="https://img.shields.io/github/actions/workflow/status/Safrochain-Org/saflink-sdk/ci.yml?branch=main" alt="CI">
+  <a href="https://github.com/Safrochain-Org/safhandle-sdk/actions">
+    <img src="https://img.shields.io/github/actions/workflow/status/Safrochain-Org/safhandle-sdk/ci.yml?branch=main" alt="CI">
   </a>
   <a href="https://safrochain.com">
     <img src="https://img.shields.io/badge/built%20on-Safrochain-6C3CE0" alt="Built on Safrochain">
@@ -19,19 +19,19 @@
 
 > **Status: Specification / Documentation phase.** Package implementation and npm publish will follow in a later milestone.
 
-**SAFLink SDK** lets any wallet or dApp resolve short names and phone numbers to `addr_safro` wallet addresses on Safrochain.
+**SafHandle SDK** lets any wallet or dApp resolve short names and phone numbers to `addr_safro` wallet addresses on Safrochain.
 
 ```js
-import { SafLink } from '@safrochain/saflink';
+import { SafHandle } from '@safrochain/safhandle';
 
-const safLink = new SafLink({ network: 'safrochain-testnet' });
-const address = await safLink.getAddress('john');
-const address2 = await safLink.getAddress('+243899123456');
+const safHandle = new SafHandle({ network: 'safrochain-testnet' });
+const address = await safHandle.getAddress('john');
+const address2 = await safHandle.getAddress('+243899123456');
 ```
 
 ## Why use the SDK
 
-| Without SAFLink | With SAFLink SDK |
+| Without SafHandle | With SafHandle SDK |
 | --- | --- |
 | Users paste 50+ character addresses | Users type `john` or `+243899123456` |
 | Each app builds its own CosmWasm queries | One typed client for all integrators |
@@ -43,7 +43,7 @@ const address2 = await safLink.getAddress('+243899123456');
 | --- | --- |
 | [docs/README.md](./docs/README.md) | Documentation index |
 | [GETTING_STARTED.md](./docs/GETTING_STARTED.md) | Install and first resolve |
-| [API_REFERENCE.md](./docs/API_REFERENCE.md) | `SafLink` client methods |
+| [API_REFERENCE.md](./docs/API_REFERENCE.md) | `SafHandle` client methods |
 | [INTEGRATION_GUIDE.md](./docs/INTEGRATION_GUIDE.md) | dApp integration patterns |
 | [WALLET_INTEGRATION.md](./docs/WALLET_INTEGRATION.md) | Keplr, Leap, signing flows |
 | [PHONE_VERIFICATION.md](./docs/PHONE_VERIFICATION.md) | Phase 2 verification |
@@ -69,13 +69,13 @@ Examples are markdown walkthroughs in this phase (no runnable code yet).
 | Register short name | 50 SAF |
 | Link phone | 100 SAF |
 
-See [contract fees doc](https://github.com/Safrochain-Org/saflink-contract/blob/main/docs/FEES_AND_GOVERNANCE.md).
+See [contract fees doc](https://github.com/Safrochain-Org/safhandle-contract/blob/main/docs/FEES_AND_GOVERNANCE.md).
 
 ## Related repositories
 
 | Repository | Description |
 | --- | --- |
-| [saflink-contract](https://github.com/Safrochain-Org/saflink-contract) | CosmWasm registry specification |
+| [safhandle-contract](https://github.com/Safrochain-Org/safhandle-contract) | CosmWasm registry specification |
 
 ## Contributing
 

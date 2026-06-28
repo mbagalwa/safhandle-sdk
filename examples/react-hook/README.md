@@ -1,21 +1,21 @@
 # Example: React Hook for Name Lookup
 
-Custom React hook for SAFLink name resolution in dApp UIs. Markdown walkthrough — implementation in Phase 2.
+Custom React hook for SafHandle name resolution in dApp UIs. Markdown walkthrough — implementation in Phase 2.
 
 ## Goal
 
-Provide `useSafLinkAddress(input)` that returns `{ address, loading, error }` for any React component.
+Provide `useSafHandleAddress(input)` that returns `{ address, loading, error }` for any React component.
 
 ## Target API
 
 ```typescript
-function useSafLinkAddress(
+function useSafHandleAddress(
   input: string,
   options?: { network?: string; enabled?: boolean }
 ): {
   result: ResolveResult | null;
   loading: boolean;
-  error: SafLinkError | null;
+  error: SafHandleError | null;
   refetch: () => void;
 }
 ```
@@ -23,11 +23,11 @@ function useSafLinkAddress(
 ## Usage
 
 ```tsx
-import { useSafLinkAddress } from '@safrochain/saflink/react';
+import { useSafHandleAddress } from '@safrochain/safhandle/react';
 
 function SendForm() {
   const [to, setTo] = useState('');
-  const { result, loading, error } = useSafLinkAddress(to, {
+  const { result, loading, error } = useSafHandleAddress(to, {
     enabled: to.length >= 3,
   });
 
@@ -49,13 +49,13 @@ function SendForm() {
 ## Hook implementation sketch
 
 ```typescript
-export function useSafLinkAddress(input: string, options = {}) {
+export function useSafHandleAddress(input: string, options = {}) {
   const [result, setResult] = useState<ResolveResult | null>(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<SafLinkError | null>(null);
+  const [error, setError] = useState<SafHandleError | null>(null);
 
   const client = useMemo(
-    () => new SafLink({ network: options.network ?? 'safrochain-testnet' }),
+    () => new SafHandle({ network: options.network ?? 'safrochain-testnet' }),
     [options.network]
   );
 
@@ -72,7 +72,7 @@ export function useSafLinkAddress(input: string, options = {}) {
       try {
         setResult(await client.getAddress(input));
       } catch (err) {
-        setError(err as SafLinkError);
+        setError(err as SafHandleError);
         setResult(null);
       } finally {
         setLoading(false);
@@ -88,7 +88,7 @@ export function useSafLinkAddress(input: string, options = {}) {
 
 ## Package plan
 
-Future optional package: `@safrochain/saflink-react` to keep core SDK free of React peer dependency.
+Future optional package: `@safrochain/safhandle-react` to keep core SDK free of React peer dependency.
 
 ## Related
 

@@ -1,6 +1,6 @@
 # Networks
 
-Network configuration schema for `@safrochain/saflink`. Config files live in [config/](../config/).
+Network configuration schema for `@safrochain/safhandle`. Config files live in [config/](../config/).
 
 ## Supported networks
 
@@ -30,10 +30,10 @@ interface NetworkConfig {
   gasPrice: string;
   gasPriceSteps: { low: number; average: number; high: number };
   role: 'testing' | 'production';
-  saflink: SafLinkNetworkConfig;
+  safhandle: SafHandleNetworkConfig;
 }
 
-interface SafLinkNetworkConfig {
+interface SafHandleNetworkConfig {
   nameRegistrationFeeUsaf: string;  // "50000000" = 50 SAF
   phoneLinkFeeUsaf: string;         // "100000000" = 100 SAF
   devModuleWallet: string;
@@ -44,20 +44,20 @@ interface SafLinkNetworkConfig {
 ## Loading config
 
 ```typescript
-import { SafLink, networks } from '@safrochain/saflink';
+import { SafHandle, networks } from '@safrochain/safhandle';
 
 const testnet = networks['safrochain-testnet'];
-const client = new SafLink({ network: 'safrochain-testnet' });
+const client = new SafHandle({ network: 'safrochain-testnet' });
 ```
 
 ## Environment overrides
 
 | Env var | Overrides |
 | --- | --- |
-| `SAFLINK_NETWORK` | Default network slug |
-| `SAFLINK_CONTRACT_ADDRESS` | `contractAddress` |
-| `SAFLINK_RPC_URL` | `rpc` |
-| `SAFLINK_REST_URL` | `rest` |
+| `SAFHANDLE_NETWORK` | Default network slug |
+| `SAFHANDLE_CONTRACT_ADDRESS` | `contractAddress` |
+| `SAFHANDLE_RPC_URL` | `rpc` |
+| `SAFHANDLE_REST_URL` | `rest` |
 
 ## Chain constants
 
@@ -79,8 +79,8 @@ const client = new SafLink({ network: 'safrochain-testnet' });
 
 After deployment, update `contractAddress` in both repos:
 
-- [saflink-contract/config/](../config/)
-- [saflink-sdk/config/](../config/)
+- [safhandle-contract/config/](../config/)
+- [safhandle-sdk/config/](../config/)
 
 Publish a coordinated release when the address changes.
 

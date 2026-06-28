@@ -45,12 +45,12 @@ const contentChecks = [
   {
     file: "README.md",
     includes: [
-      "SAFLink SDK",
+      "SafHandle SDK",
       "MIT",
       "SECURITY.md",
       "CONTRIBUTING.md",
       "GETTING_STARTED.md",
-      "saflink-contract",
+      "safhandle-contract",
     ],
   },
   {
@@ -59,7 +59,7 @@ const contentChecks = [
   },
   {
     file: "docs/GETTING_STARTED.md",
-    includes: ["@safrochain/saflink", "50000000"],
+    includes: ["@safrochain/safhandle", "50000000"],
   },
   {
     file: "SECURITY.md",
