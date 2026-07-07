@@ -1,0 +1,68 @@
+{
+  "name": "@safrochain/safhandle",
+  "version": "1.0.0",
+  "description": "TypeScript SDK for the SafHandle name service on Safrochain — resolve wallet addresses by name and register handles on-chain.",
+  "license": "MIT",
+  "author": "Safrochain",
+  "homepage": "https://github.com/Safrochain-Org/safhandle-sdk/tree/main/packages/js#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Safrochain-Org/safhandle-sdk.git",
+    "directory": "packages/js"
+  },
+  "bugs": {
+    "url": "https://github.com/Safrochain-Org/safhandle-sdk/issues"
+  },
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "keywords": [
+    "safrochain",
+    "safhandle",
+    "cosmwasm",
+    "name-service",
+    "cosmos",
+    "wallet",
+    "resolver"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "npm run build:esm && npm run build:cjs && node scripts/write-cjs-package.mjs",
+    "build:esm": "tsc -p tsconfig.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "typecheck": "tsc --noEmit",
+    "pretest": "npm run build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:integration": "npm run build && cross-env SAFHANDLE_INTEGRATION=1 vitest run test/integration.test.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@cosmjs/cosmwasm-stargate": "^0.36.2",
+    "@cosmjs/encoding": "^0.36.2",
+    "@cosmjs/proto-signing": "^0.36.2",
+    "@cosmjs/stargate": "^0.36.2"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "typescript": "^5.4.0",
+    "vitest": "^2.1.9"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
