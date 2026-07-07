@@ -2,6 +2,9 @@
   "ignorePatterns": [
     {
       "pattern": "^https://github.com/Safrochain-Org/safhandle-contract"
+    },
+    {
+      "pattern": "^https://www.npmjs.com/package/@safrochain/safhandle"
     }
   ],
   "aliveStatusCodes": [200, 206, 403, 429]

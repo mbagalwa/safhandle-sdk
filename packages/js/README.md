@@ -1,7 +1,7 @@
 # @safrochain/safhandle
 
 [![npm](https://img.shields.io/npm/v/@safrochain/safhandle.svg)](https://www.npmjs.com/package/@safrochain/safhandle)
-[![license](https://img.shields.io/npm/l/@safrochain/safhandle.svg)](https://github.com/Safrochain-Org/safhandle-sdk/blob/main/packages/js/LICENSE)
+[![license](https://img.shields.io/npm/l/@safrochain/safhandle.svg)](LICENSE)
 
 TypeScript SDK for the [SafHandle](https://github.com/Safrochain-Org/safhandle-contract)
 name service on Safrochain. Resolve a wallet address from a **name** and register
@@ -132,11 +132,11 @@ npm run test:integration   # live reads against safro-testnet-1
 
 ## Examples
 
-- [`examples/resolve.ts`](https://github.com/Safrochain-Org/safhandle-sdk/blob/main/packages/js/examples/resolve.ts) — resolve a name
-- [`examples/register.ts`](https://github.com/Safrochain-Org/safhandle-sdk/blob/main/packages/js/examples/register.ts) — register a name from a mnemonic
+- [`examples/resolve.ts`](examples/resolve.ts) — resolve a name
+- [`examples/register.ts`](examples/register.ts) — register a name from a mnemonic
 
 Run with `npx tsx examples/resolve.ts john`.
 
 ## License
 
-[MIT](https://github.com/Safrochain-Org/safhandle-sdk/blob/main/packages/js/LICENSE) © Safrochain
+[MIT](LICENSE) © Safrochain
