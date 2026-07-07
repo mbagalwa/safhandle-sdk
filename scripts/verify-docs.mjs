@@ -59,7 +59,7 @@ const contentChecks = [
   },
   {
     file: "docs/GETTING_STARTED.md",
-    includes: ["@safrochain/safhandle", "50000000"],
+    includes: ["@safrochaindev/safhandle", "50000000"],
   },
   {
     file: "SECURITY.md",

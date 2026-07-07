@@ -1,6 +1,6 @@
 // Read-only: resolve a wallet address from a name.
 // Run: npx tsx examples/resolve.ts john
-import { SAFROCHAIN_TESTNET, SafHandleClient } from "@safrochain/safhandle";
+import { SAFROCHAIN_TESTNET, SafHandleClient } from "@safrochaindev/safhandle";
 
 const CONTRACT_ADDRESS =
   process.env.SAFHANDLE_CONTRACT ?? SAFROCHAIN_TESTNET.contractAddress!;

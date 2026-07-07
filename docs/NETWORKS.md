@@ -1,6 +1,6 @@
 # Networks
 
-Network configuration schema for `@safrochain/safhandle`. Config files live in [config/](../config/).
+Network configuration schema for `@safrochaindev/safhandle`. Config files live in [config/](../config/).
 
 ## Supported networks
 
@@ -44,7 +44,7 @@ interface SafHandleNetworkConfig {
 ## Loading config
 
 ```typescript
-import { SafHandle, networks } from '@safrochain/safhandle';
+import { SafHandle, networks } from '@safrochaindev/safhandle';
 
 const testnet = networks['safrochain-testnet'];
 const client = new SafHandle({ network: 'safrochain-testnet' });

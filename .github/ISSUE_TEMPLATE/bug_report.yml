@@ -31,7 +31,7 @@ body:
     attributes:
       label: Steps to reproduce
       placeholder: |
-        1. npm install @safrochain/safhandle
+        1. npm install @safrochaindev/safhandle
         2. Call getAddress("john") on testnet
         3. Observe error
     validations:

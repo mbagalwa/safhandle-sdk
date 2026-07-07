@@ -1,7 +1,7 @@
 // Write: register a name from a mnemonic. Needs a funded testnet account.
 // Run: SAFHANDLE_MNEMONIC="..." npx tsx examples/register.ts my-name
 import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
-import { SAFROCHAIN_TESTNET, SafHandleSigningClient } from "@safrochain/safhandle";
+import { SAFROCHAIN_TESTNET, SafHandleSigningClient } from "@safrochaindev/safhandle";
 
 const CONTRACT_ADDRESS =
   process.env.SAFHANDLE_CONTRACT ?? SAFROCHAIN_TESTNET.contractAddress!;

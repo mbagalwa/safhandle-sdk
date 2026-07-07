@@ -1,5 +1,5 @@
 {
-  "name": "@safrochain/safhandle",
+  "name": "@safrochaindev/safhandle",
   "version": "0.0.0",
   "description": "TypeScript/JavaScript client for SafHandle short names and phone links on Safrochain",
   "license": "MIT",

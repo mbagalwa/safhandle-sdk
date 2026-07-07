@@ -1,6 +1,6 @@
 {
-  "name": "@safrochain/safhandle",
-  "version": "1.0.0",
+  "name": "@safrochaindev/safhandle",
+  "version": "0.1.0-beta",
   "description": "TypeScript SDK for the SafHandle name service on Safrochain — resolve wallet addresses by name and register handles on-chain.",
   "license": "MIT",
   "author": "Safrochain",

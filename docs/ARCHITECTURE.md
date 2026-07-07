@@ -1,6 +1,6 @@
 # SDK Architecture
 
-How `@safrochain/safhandle` connects applications to the on-chain SafHandle registry.
+How `@safrochaindev/safhandle` connects applications to the on-chain SafHandle registry.
 
 ## Layer diagram
 

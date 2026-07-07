@@ -1,11 +1,11 @@
 # API Reference
 
-Target API for `@safrochain/safhandle`. Aligns with [contract CONTRACT_API.md](https://github.com/Safrochain-Org/safhandle-contract/blob/main/docs/CONTRACT_API.md).
+Target API for `@safrochaindev/safhandle`. Aligns with [contract CONTRACT_API.md](https://github.com/Safrochain-Org/safhandle-contract/blob/main/docs/CONTRACT_API.md).
 
 ## SafHandle class
 
 ```typescript
-import { SafHandle } from '@safrochain/safhandle';
+import { SafHandle } from '@safrochaindev/safhandle';
 
 const client = new SafHandle(options: SafHandleOptions);
 ```
@@ -162,7 +162,7 @@ import {
   isValidName,
   isValidPhone,
   normalizePhone,
-} from '@safrochain/safhandle';
+} from '@safrochaindev/safhandle';
 
 normalizeName('John');        // 'john.saf'
 isValidPhone('+243899123456'); // true

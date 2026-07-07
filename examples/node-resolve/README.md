@@ -9,7 +9,7 @@ Given input `john`, print the resolved `addr_safro` address on testnet.
 ## Prerequisites
 
 - Node.js 20+
-- `@safrochain/safhandle` installed (future)
+- `@safrochaindev/safhandle` installed (future)
 - SafHandle contract deployed on testnet
 
 ## Steps
@@ -29,7 +29,7 @@ SAFHANDLE_NETWORK=safrochain-testnet
 ### 2. Create resolve script
 
 ```javascript
-import { SafHandle } from '@safrochain/safhandle';
+import { SafHandle } from '@safrochaindev/safhandle';
 
 const safHandle = new SafHandle({ network: 'safrochain-testnet' });
 
@@ -59,7 +59,7 @@ node resolve.mjs +243899123456
 ## Error handling
 
 ```javascript
-import { SafHandleNotFoundError } from '@safrochain/safhandle';
+import { SafHandleNotFoundError } from '@safrochaindev/safhandle';
 
 try {
   await safHandle.getAddress('nobody');

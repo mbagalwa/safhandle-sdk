@@ -9,7 +9,7 @@ test("package.json declares MIT license", () => {
   const pkg = JSON.parse(readFileSync(join(root, "package.json"), "utf8"));
   assert.equal(pkg.license, "MIT");
   assert.match(pkg.repository.url, /safhandle-sdk/);
-  assert.equal(pkg.name, "@safrochain/safhandle");
+  assert.equal(pkg.name, "@safrochaindev/safhandle");
 });
 
 test("CI workflow exists", () => {

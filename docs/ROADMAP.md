@@ -1,6 +1,6 @@
 # Roadmap
 
-Release timeline for `@safrochain/safhandle`.
+Release timeline for `@safrochaindev/safhandle`.
 
 ## Phase 1 — Specification (current)
 
@@ -26,7 +26,7 @@ Release timeline for `@safrochain/safhandle`.
 
 **Target: Q3 2026**
 
-- [ ] Publish `@safrochain/safhandle@0.1.0-beta` to npm
+- [ ] Publish `@safrochaindev/safhandle@0.1.0-beta` to npm
 - [ ] Runnable examples (node, browser, React)
 - [ ] Safroutine Hub integration (beta)
 
@@ -34,7 +34,7 @@ Release timeline for `@safrochain/safhandle`.
 
 **Target: Q4 2026**
 
-- [ ] `@safrochain/safhandle@1.0.0` after mainnet contract deploy
+- [ ] `@safrochaindev/safhandle@1.0.0` after mainnet contract deploy
 - [ ] Wallet partner integrations
 - [ ] API stability commitment
 
@@ -48,7 +48,7 @@ Release timeline for `@safrochain/safhandle`.
 
 ## Phase 6 — Enhancements
 
-- [ ] React hook package (`@safrochain/safhandle-react`)
+- [ ] React hook package (`@safrochaindev/safhandle-react`)
 - [ ] React Native support
 - [ ] Batch resolution API
 - [ ] CDN/browser bundle (unpkg)

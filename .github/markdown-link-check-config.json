@@ -4,7 +4,7 @@
       "pattern": "^https://github.com/Safrochain-Org/safhandle-contract"
     },
     {
-      "pattern": "^https://www.npmjs.com/package/@safrochain/safhandle"
+      "pattern": "^https://www.npmjs.com/package/@safrochaindev/safhandle"
     }
   ],
   "aliveStatusCodes": [200, 206, 403, 429]

@@ -23,7 +23,7 @@ function useSafHandleAddress(
 ## Usage
 
 ```tsx
-import { useSafHandleAddress } from '@safrochain/safhandle/react';
+import { useSafHandleAddress } from '@safrochaindev/safhandle/react';
 
 function SendForm() {
   const [to, setTo] = useState('');
@@ -88,7 +88,7 @@ export function useSafHandleAddress(input: string, options = {}) {
 
 ## Package plan
 
-Future optional package: `@safrochain/safhandle-react` to keep core SDK free of React peer dependency.
+Future optional package: `@safrochaindev/safhandle-react` to keep core SDK free of React peer dependency.
 
 ## Related
 

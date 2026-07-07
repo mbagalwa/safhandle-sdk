@@ -11,7 +11,7 @@ Quick guide to integrating SafHandle resolution into your application. **Impleme
 ## Installation (future)
 
 ```bash
-npm install @safrochain/safhandle
+npm install @safrochaindev/safhandle
 ```
 
 ## Configuration
@@ -31,7 +31,7 @@ cp .env.example .env
 ## Basic usage
 
 ```js
-import { SafHandle } from '@safrochain/safhandle';
+import { SafHandle } from '@safrochaindev/safhandle';
 
 const safHandle = new SafHandle({
   network: 'safrochain-testnet',

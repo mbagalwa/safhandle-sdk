@@ -17,7 +17,7 @@ Any Cosmos wallet supporting Safrochain (`addr_safro`, chain ID `safrochain-1` /
 ### 1. Detect input type
 
 ```typescript
-import { isValidPhone, isValidName } from '@safrochain/safhandle';
+import { isValidPhone, isValidName } from '@safrochaindev/safhandle';
 
 function classifyInput(input: string) {
   if (input.startsWith('+') && isValidPhone(input)) return 'phone';

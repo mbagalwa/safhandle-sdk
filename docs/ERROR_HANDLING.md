@@ -1,6 +1,6 @@
 # Error Handling
 
-Error types and recovery strategies for `@safrochain/safhandle`.
+Error types and recovery strategies for `@safrochaindev/safhandle`.
 
 ## Error hierarchy
 

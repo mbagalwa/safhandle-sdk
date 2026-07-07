@@ -22,7 +22,7 @@
 **SafHandle SDK** lets any wallet or dApp resolve short names and phone numbers to `addr_safro` wallet addresses on Safrochain.
 
 ```js
-import { SafHandle } from '@safrochain/safhandle';
+import { SafHandle } from '@safrochaindev/safhandle';
 
 const safHandle = new SafHandle({ network: 'safrochain-testnet' });
 const address = await safHandle.getAddress('john');
