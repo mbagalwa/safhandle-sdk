@@ -4,7 +4,7 @@ All notable changes to this package are documented here. Format based on
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning follows
 [SemVer](https://semver.org/spec/v2.0.0.html).
 
-## 0.2.1-beta
+## 0.1.0
 
 ### Added
 

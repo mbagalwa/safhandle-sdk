@@ -23,7 +23,7 @@ rules, and message shapes match one-to-one.
 ```yaml
 # pubspec.yaml
 dependencies:
-  safhandle: ^0.2.1-beta
+  safhandle: ^0.1.0
 ```
 
 ```bash
