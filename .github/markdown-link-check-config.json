@@ -5,6 +5,9 @@
     },
     {
       "pattern": "^https://www.npmjs.com/package/@safrochaindev/safhandle"
+    },
+    {
+      "pattern": "^https://pub.dev/packages/safhandle"
     }
   ],
   "aliveStatusCodes": [200, 206, 403, 429]
