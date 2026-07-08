@@ -28,10 +28,12 @@ CosmJS (`@cosmjs/cosmwasm-stargate`, `@cosmjs/stargate`, `@cosmjs/proto-signing`
 ```ts
 import { SafHandleClient, SAFROCHAIN_TESTNET } from "@safrochaindev/safhandle";
 
-const client = await SafHandleClient.connect(
-  SAFROCHAIN_TESTNET.rpcEndpoint,
-  CONTRACT_ADDRESS, // the deployed safhandle contract (addr_safro1...)
-);
+// Testnet's contract address is baked into the SDK — just pass the RPC endpoint.
+// (See "Choosing a network" below for mainnet and custom deployments.)
+const client = await SafHandleClient.connect({
+  network: "testnet",
+  rpcEndpoint: SAFROCHAIN_TESTNET.rpcEndpoint,
+});
 
 // Resolve a name to its owner address.
 await client.getAddress("john"); // -> { address, record_type: "name", normalized_key: "john.saf" }
@@ -41,6 +43,71 @@ const addr = await client.lookup("john"); // string | null
 
 // Reverse lookup: which name does an address own?
 await client.getHandles("addr_safro1..."); // -> { name: "john.saf" | null }
+```
+
+### Choosing a network (`ConnectOptions`)
+
+`connect()` takes **one** `ConnectOptions` object. The `network` field decides
+where the contract address comes from — you never have to hardcode it for the
+known networks:
+
+| `network`   | You pass                              | Contract address used            |
+| ----------- | ------------------------------------- | -------------------------------- |
+| `"testnet"` | `rpcEndpoint`                         | pinned in the SDK                |
+| `"mainnet"` | `rpcEndpoint`                         | pinned in the SDK                |
+| `"custom"`  | `rpcEndpoint` **+** `contractAddress` | whatever you provide             |
+
+**Fields**
+
+- **`network`** — `"testnet" | "mainnet" | "custom"`. Picks which SafHandle
+  contract the client talks to. `testnet`/`mainnet` use an address pinned in the
+  SDK; `custom` lets you point at any deployment.
+- **`rpcEndpoint`** — `string`, **required for every network.** The
+  CometBFT/Tendermint RPC URL the client dials (handed straight to CosmJS'
+  `CosmWasmClient.connect`) — e.g. `https://rpc.testnet.safrochain.com`, a local
+  node at `http://localhost:26657`, or a same-origin proxy like `/api/rpc`. Only
+  the contract address is pinned per network; the endpoint is always yours to pass.
+- **`contractAddress`** — `string`, **only on `custom`, and required there.** The
+  bech32 address of the deployed SafHandle contract (`addr_safro1…`). On
+  `testnet`/`mainnet` it comes from `CONTRACT_ADDRESSES`, and passing it inline is
+  a TypeScript error — the union has no such field on those two members, so you
+  can't accidentally send an address that would be ignored.
+
+> ℹ️ **mainnet** is not live yet — its address is a placeholder until the
+> contract is deployed. Use `testnet` or `custom` for now.
+
+The call returns a ready-to-use `SafHandleClient`; it opens the RPC connection
+eagerly, so `await` it once and reuse the instance (see the read methods below).
+
+#### When to use `custom`
+
+Reach for `"custom"` whenever the contract you want to talk to is **not** one of
+the pinned networks. You then provide both the endpoint and the address:
+
+```ts
+const client = await SafHandleClient.connect({
+  network: "custom",
+  rpcEndpoint: "http://localhost:26657",
+  contractAddress: "addr_safro1...", // required — this is what makes it "custom"
+});
+```
+
+Typical cases:
+
+- **Local chain / devnet** — point at `http://localhost:26657` and the address
+  printed when you instantiated the contract.
+- **A specific deployment** — an older or newer contract than the one baked into
+  the SDK, or an unlisted one.
+- **Behind an RPC proxy** — e.g. a browser app that calls a same-origin
+  `/api/rpc` route to avoid CORS, aimed at the contract of your choice.
+
+The full type, for reference:
+
+```ts
+type ConnectOptions =
+  | { network: "testnet"; rpcEndpoint: string }
+  | { network: "mainnet"; rpcEndpoint: string }
+  | { network: "custom"; rpcEndpoint: string; contractAddress: string };
 ```
 
 ### Read methods
@@ -73,7 +140,7 @@ const signer = await DirectSecp256k1HdWallet.fromMnemonic(mnemonic, {
 const client = await SafHandleSigningClient.connectWithSigner(
   SAFROCHAIN_TESTNET.rpcEndpoint,
   signer,
-  CONTRACT_ADDRESS,
+  SAFROCHAIN_TESTNET.contractAddress, // pinned testnet contract
 );
 
 await client.registerName("my-name"); // attaches name fee from config

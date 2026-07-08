@@ -1,5 +1,6 @@
 import { CosmWasmClient } from "@cosmjs/cosmwasm-stargate";
 
+import { CONTRACT_ADDRESSES, type ConnectOptions } from "./constants.js";
 import { isNotFound } from "./errors.js";
 import type {
   AddressResponse,
@@ -24,12 +25,23 @@ export class SafHandleClient {
     this.contractAddress = contractAddress;
   }
 
-  /** Connect a read-only client to an RPC endpoint. */
-  static async connect(
-    rpcEndpoint: string,
-    contractAddress: string,
-  ): Promise<SafHandleClient> {
-    const cosmwasm = await CosmWasmClient.connect(rpcEndpoint);
+  /**
+   * Connect a read-only client. Pass a named network (`"testnet"`/`"mainnet"`)
+   * to use its pinned contract address, or `"custom"` with an explicit
+   * `contractAddress` for any other deployment.
+   *
+   * @example
+   * await SafHandleClient.connect({
+   *   network: "testnet",
+   *   rpcEndpoint: SAFROCHAIN_TESTNET.rpcEndpoint,
+   * });
+   */
+  static async connect(options: ConnectOptions): Promise<SafHandleClient> {
+    const contractAddress =
+      options.network === "custom"
+        ? options.contractAddress
+        : CONTRACT_ADDRESSES[options.network];
+    const cosmwasm = await CosmWasmClient.connect(options.rpcEndpoint);
     return new SafHandleClient(cosmwasm, contractAddress);
   }
 

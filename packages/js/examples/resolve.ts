@@ -2,15 +2,20 @@
 // Run: npx tsx examples/resolve.ts john
 import { SAFROCHAIN_TESTNET, SafHandleClient } from "@safrochaindev/safhandle";
 
-const CONTRACT_ADDRESS =
-  process.env.SAFHANDLE_CONTRACT ?? SAFROCHAIN_TESTNET.contractAddress!;
-
 async function main() {
   const input = process.argv[2] ?? "john";
 
+  // Testnet's contract address is baked into the SDK. Set SAFHANDLE_CONTRACT to
+  // point at a different deployment via the `custom` network.
+  const contract = process.env.SAFHANDLE_CONTRACT;
   const client = await SafHandleClient.connect(
-    SAFROCHAIN_TESTNET.rpcEndpoint,
-    CONTRACT_ADDRESS,
+    contract
+      ? {
+          network: "custom",
+          rpcEndpoint: SAFROCHAIN_TESTNET.rpcEndpoint,
+          contractAddress: contract,
+        }
+      : { network: "testnet", rpcEndpoint: SAFROCHAIN_TESTNET.rpcEndpoint },
   );
 
   const address = await client.lookup(input);

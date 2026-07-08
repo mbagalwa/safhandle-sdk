@@ -13,10 +13,10 @@ const KNOWN_OWNER = "addr_safro1qyzdpg5v9xepwn0jx65uxhjrq07t8v8w93qq7d";
 
 describe.skipIf(!RUN)("integration: live testnet reads", () => {
   async function connect() {
-    return SafHandleClient.connect(
-      SAFROCHAIN_TESTNET.rpcEndpoint,
-      SAFROCHAIN_TESTNET.contractAddress!,
-    );
+    return SafHandleClient.connect({
+      network: "testnet",
+      rpcEndpoint: SAFROCHAIN_TESTNET.rpcEndpoint,
+    });
   }
 
   it("getConfig returns the expected fee shape", async () => {

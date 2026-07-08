@@ -18,8 +18,11 @@ export {
   type ParsedInput,
 } from "./validation.js";
 export {
+  CONTRACT_ADDRESSES,
   DEFAULT_GAS_PRICE,
   SAFROCHAIN_TESTNET,
+  type ConnectOptions,
+  type KnownNetwork,
   type NetworkConfig,
 } from "./constants.js";
 
