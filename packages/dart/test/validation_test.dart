@@ -5,7 +5,8 @@ import 'package:test/test.dart';
 // contract's validation.rs tests. If these drift from the contract,
 // registrations built by the SDK would be rejected on-chain — so parity matters.
 
-const addr = 'addr_safro10fmuatrxlcj6644vang5fuwyvdldfjss4tqqvemw9upm0qpn54esxr94v2';
+const addr =
+    'addr_safro10fmuatrxlcj6644vang5fuwyvdldfjss4tqqvemw9upm0qpn54esxr94v2';
 
 void main() {
   group('normalizeName', () {
@@ -109,16 +110,18 @@ void main() {
 
   group('parseInput', () {
     test("routes '@name' to the name lane, normalized", () {
-      expect(parseInput('@john'), const ParsedInput(HandleKind.name, 'john.saf'));
-      expect(parseInput('  @Alice '), const ParsedInput(HandleKind.name, 'alice.saf'));
+      expect(
+          parseInput('@john'), const ParsedInput(HandleKind.name, 'john.saf'));
+      expect(parseInput('  @Alice '),
+          const ParsedInput(HandleKind.name, 'alice.saf'));
     });
 
     test('rejects an all-digit input as invalidInput', () {
       for (final input in <String>['243899123456', '123']) {
         expect(
           () => parseInput(input),
-          throwsA(isA<SafHandleError>().having(
-              (e) => e.code, 'code', SafHandleErrorCode.invalidInput)),
+          throwsA(isA<SafHandleError>()
+              .having((e) => e.code, 'code', SafHandleErrorCode.invalidInput)),
           reason: 'input: $input',
         );
       }

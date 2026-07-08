@@ -56,8 +56,9 @@ class RecordingSigner implements SafHandleSigner {
     // Path: /cosmwasm/wasm/v1/contract/{addr}/smart/{b64}
     final segments = request.url.pathSegments;
     final encoded = segments.last;
-    final decoded = jsonDecode(utf8.decode(base64.decode(Uri.decodeComponent(encoded))))
-        as Map<String, dynamic>;
+    final decoded =
+        jsonDecode(utf8.decode(base64.decode(Uri.decodeComponent(encoded))))
+            as Map<String, dynamic>;
     if (decoded.containsKey('config')) {
       configQueries++;
       return http.Response(jsonEncode(<String, dynamic>{'data': config}), 200,
@@ -68,7 +69,8 @@ class RecordingSigner implements SafHandleSigner {
   return (client: client, configQueries: () => configQueries);
 }
 
-SafHandleSigningClient makeClient(RecordingSigner signer, http.Client httpClient) {
+SafHandleSigningClient makeClient(
+    RecordingSigner signer, http.Client httpClient) {
   return SafHandleSigningClient(
     signer: signer,
     restEndpoint: 'https://rest.example',
@@ -79,7 +81,8 @@ SafHandleSigningClient makeClient(RecordingSigner signer, http.Client httpClient
 
 void main() {
   group('registerName', () {
-    test('normalizes the name and attaches the exact fee from config', () async {
+    test('normalizes the name and attaches the exact fee from config',
+        () async {
       final signer = RecordingSigner();
       final rest = fakeRest();
       final client = makeClient(signer, rest.client);
@@ -128,7 +131,8 @@ void main() {
   });
 
   group('transfer / release (no funds)', () {
-    test('transferName sends normalized name and new owner with no funds', () async {
+    test('transferName sends normalized name and new owner with no funds',
+        () async {
       final signer = RecordingSigner();
       final client = makeClient(signer, fakeRest().client);
 

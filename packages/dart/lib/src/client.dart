@@ -78,7 +78,8 @@ class SafHandleClient {
 
     late final http.Response res;
     try {
-      res = await _http.get(uri, headers: const <String, String>{'Accept': 'application/json'});
+      res = await _http.get(uri,
+          headers: const <String, String>{'Accept': 'application/json'});
     } catch (err) {
       throw SafHandleQueryException('Request failed: $err');
     }
@@ -127,7 +128,8 @@ class SafHandleClient {
   /// Throws when the handle is unregistered (see [lookup] for a null-returning
   /// variant).
   Future<GetAddressResponse> getAddress(String input) async {
-    return GetAddressResponse.fromJson(await _queryObject(QueryMsg.getAddress(input)));
+    return GetAddressResponse.fromJson(
+        await _queryObject(QueryMsg.getAddress(input)));
   }
 
   /// Resolve a name, returning just the address, or `null` if the handle is not
@@ -144,7 +146,8 @@ class SafHandleClient {
 
   /// Resolve by name only. [name] may be bare (`john`) or full (`john.saf`).
   Future<String> resolveName(String name) async {
-    final res = AddressResponse.fromJson(await _queryObject(QueryMsg.resolveName(name)));
+    final res = AddressResponse.fromJson(
+        await _queryObject(QueryMsg.resolveName(name)));
     return res.address;
   }
 
@@ -152,7 +155,8 @@ class SafHandleClient {
   /// record — [HandlesResponse.name] comes back as `null` when the address owns
   /// none.
   Future<HandlesResponse> getHandles(String address) async {
-    return HandlesResponse.fromJson(await _queryObject(QueryMsg.handles(address)));
+    return HandlesResponse.fromJson(
+        await _queryObject(QueryMsg.handles(address)));
   }
 
   /// Full record for a name, including owner and registration height.

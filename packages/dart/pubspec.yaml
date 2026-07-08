@@ -1,8 +1,8 @@
 name: safhandle
 description: >-
-  Dart/Flutter SDK for the SafHandle name service on Safrochain — resolve wallet
-  addresses by name and register handles on-chain, with client-side validation
-  that mirrors the contract.
+  Dart/Flutter SDK for the SafHandle name service on Safrochain — resolve
+  wallet addresses by name and register handles on-chain, mirroring the
+  contract's validation.
 version: 0.2.1-beta
 repository: https://github.com/Safrochain-Org/safhandle-sdk
 homepage: https://github.com/Safrochain-Org/safhandle-sdk/tree/main/packages/dart

@@ -24,11 +24,13 @@ SafHandleClient clientWith(MockClient mock) => SafHandleClient(
     );
 
 void main() {
-  test('getAddress builds a get_address smart query and parses the response', () async {
+  test('getAddress builds a get_address smart query and parses the response',
+      () async {
     late Map<String, dynamic> seenQuery;
     final mock = MockClient((request) async {
       seenQuery = decodeQuery(request);
-      expect(request.url.path, contains('/cosmwasm/wasm/v1/contract/$contract/smart/'));
+      expect(request.url.path,
+          contains('/cosmwasm/wasm/v1/contract/$contract/smart/'));
       return http.Response(
         jsonEncode(<String, dynamic>{
           'data': <String, dynamic>{
@@ -82,7 +84,9 @@ void main() {
   test('getHandles parses a null name (address owns nothing)', () async {
     final mock = MockClient((request) async {
       return http.Response(
-        jsonEncode(<String, dynamic>{'data': <String, dynamic>{'name': null}}),
+        jsonEncode(<String, dynamic>{
+          'data': <String, dynamic>{'name': null}
+        }),
         200,
       );
     });

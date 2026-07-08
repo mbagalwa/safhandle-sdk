@@ -125,7 +125,8 @@ class Coin {
   final String denom;
   final String amount;
 
-  Map<String, dynamic> toJson() => <String, dynamic>{'denom': denom, 'amount': amount};
+  Map<String, dynamic> toJson() =>
+      <String, dynamic>{'denom': denom, 'amount': amount};
 
   @override
   bool operator ==(Object other) =>

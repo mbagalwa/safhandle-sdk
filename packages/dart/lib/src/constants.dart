@@ -46,7 +46,8 @@ class NetworkConfig {
 ///
 /// `mainnet` is a placeholder — swap it for the real address once the contract
 /// is deployed and the SDK is verified against it.
-const Map<SafHandleNetwork, String> contractAddresses = <SafHandleNetwork, String>{
+const Map<SafHandleNetwork, String> contractAddresses =
+    <SafHandleNetwork, String>{
   SafHandleNetwork.testnet:
       'addr_safro17ykz5k26fzg0808knarpgg2tdxxxfmefuh9mydusqyfkr3vtdvysvv2vs0',
   SafHandleNetwork.mainnet: 'addr_saf_MAIN_NET',

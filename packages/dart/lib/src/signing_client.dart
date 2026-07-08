@@ -9,7 +9,8 @@ import 'validation.dart';
 /// Result of a signed, broadcast execute call.
 @immutable
 class ExecuteResult {
-  const ExecuteResult({required this.transactionHash, this.height, this.rawLog});
+  const ExecuteResult(
+      {required this.transactionHash, this.height, this.rawLog});
 
   final String transactionHash;
   final int? height;
@@ -117,7 +118,8 @@ class SafHandleSigningClient extends SafHandleClient {
   /// Register a short name for the sender. Validates and normalizes locally,
   /// attaches the exact registration fee (from [WriteOptions.fee], else fetched
   /// from the contract config).
-  Future<ExecuteResult> registerName(String name, {WriteOptions? options}) async {
+  Future<ExecuteResult> registerName(String name,
+      {WriteOptions? options}) async {
     final normalized = normalizeName(name);
     final fee = options?.fee ?? await _nameFee();
     return _exec(

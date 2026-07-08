@@ -46,10 +46,12 @@ bool _isAscii(String s) {
 /// `reservedName`.
 String normalizeName(String input) {
   final trimmed = input.trim();
-  final bare =
-      trimmed.startsWith(namePrefix) ? trimmed.substring(namePrefix.length) : trimmed;
+  final bare = trimmed.startsWith(namePrefix)
+      ? trimmed.substring(namePrefix.length)
+      : trimmed;
   if (bare.isEmpty) {
-    throw const SafHandleError(SafHandleErrorCode.invalidName, 'Name is empty.');
+    throw const SafHandleError(
+        SafHandleErrorCode.invalidName, 'Name is empty.');
   }
 
   // Any `@` beyond the leading display marker means an email-shaped input.
@@ -68,8 +70,9 @@ String normalizeName(String input) {
   }
 
   final lowered = bare.toLowerCase();
-  final label =
-      lowered.endsWith(nameSuffix) ? lowered.substring(0, lowered.length - nameSuffix.length) : lowered;
+  final label = lowered.endsWith(nameSuffix)
+      ? lowered.substring(0, lowered.length - nameSuffix.length)
+      : lowered;
 
   // After stripping the single allowed `.saf` suffix, no dot may remain
   // (blocks `john.com`, `a.b.saf`, and other domain/email-shaped input).

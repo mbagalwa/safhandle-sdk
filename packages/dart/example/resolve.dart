@@ -30,7 +30,8 @@ Future<void> main(List<String> args) async {
 
     final record = await client.getAddress(input);
     stdout.writeln('$input → $address');
-    stdout.writeln('  type: ${record.recordType}, key: ${record.normalizedKey}');
+    stdout
+        .writeln('  type: ${record.recordType}, key: ${record.normalizedKey}');
   } finally {
     client.close();
   }
