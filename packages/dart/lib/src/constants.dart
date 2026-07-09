@@ -43,14 +43,12 @@ class NetworkConfig {
 
 /// Deployed SafHandle contract address per named network, baked into the SDK so
 /// callers don't have to carry it around.
-///
-/// `mainnet` is a placeholder — swap it for the real address once the contract
-/// is deployed and the SDK is verified against it.
 const Map<SafHandleNetwork, String> contractAddresses =
     <SafHandleNetwork, String>{
   SafHandleNetwork.testnet:
       'addr_safro17ykz5k26fzg0808knarpgg2tdxxxfmefuh9mydusqyfkr3vtdvysvv2vs0',
-  SafHandleNetwork.mainnet: 'addr_saf_MAIN_NET',
+  SafHandleNetwork.mainnet:
+      'addr_safro14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9s0nv26n',
 };
 
 /// Safrochain testnet (`safro-testnet-1`) preset.
@@ -66,16 +64,17 @@ const NetworkConfig safrochainTestnet = NetworkConfig(
       'addr_safro17ykz5k26fzg0808knarpgg2tdxxxfmefuh9mydusqyfkr3vtdvysvv2vs0',
 );
 
-/// Safrochain mainnet (`safrochain-1`) preset. Contract address is a placeholder
-/// until the contract is deployed.
+/// Safrochain mainnet (`safrochain-1`) preset.
 const NetworkConfig safrochainMainnet = NetworkConfig(
   chainId: 'safrochain-1',
-  rpcEndpoint: 'https://rpc.safrochain.com',
-  restEndpoint: 'https://api.safrochain.com',
+  rpcEndpoint: 'https://rpc.safrochain.network',
+  restEndpoint: 'https://api.safrochain.network',
   addressPrefix: 'addr_safro',
   denom: 'usaf',
-  gasPrice: '100000usaf',
-  contractAddress: 'addr_saf_MAIN_NET',
+  gasPrice: '0.15usaf',
+  // SafHandle v1 (name-only) contract on safrochain-1.
+  contractAddress:
+      'addr_safro14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9s0nv26n',
 );
 
 /// Default gas price used when constructing a signing client.

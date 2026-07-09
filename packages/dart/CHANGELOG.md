@@ -4,6 +4,14 @@ All notable changes to this package are documented here. Format based on
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning follows
 [SemVer](https://semver.org/spec/v2.0.0.html).
 
+## 0.1.1-beta
+
+### Changed
+
+- Pin the deployed SafHandle mainnet contract address on `safrochain-1`.
+- Point the mainnet preset at `rpc/api.safrochain.network` and set the
+  gas price to `0.15usaf`.
+
 ## 0.1.0
 
 ### Added
